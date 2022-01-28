@@ -6,7 +6,5 @@ export default function Desglosenumber(n: number): number[] {
         result.push(Math.floor(residuo / monedas[i]));
         residuo = (residuo % monedas[i]);
     }
-    
-
     return result;
 }

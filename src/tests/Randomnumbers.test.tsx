@@ -1,29 +1,20 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Randomnumbers from '../Brain'
+import Desglosenumber from '../Brain'
 
-test('Return 10 different arrays using 5 as N', () => {
-  let arrays:Array<Array<Number>> = [];
-  for (let i = 1; i <= 10; i ++) {
-    arrays.push(Randomnumbers(5))
-  }
-  let anyofthearraysisequall:boolean = false;
-  for (let i = 0; i <= 9; i++) {
-    anyofthearraysisequall = arrays[i].every((e,i) => arrays[5 - i][i] == e);
-    if (anyofthearraysisequall) {break }
-  }
-  expect(anyofthearraysisequall).toBeFalsy();
+test('Return Precise number of paper used to return to cash in case number 17984 RD$', () => {
+  let expectedanswer = [
+    8, 1, 1, 2, 0,
+    1, 1, 0, 1, 4
+    ]
+  
+  expect(Desglosenumber(17984).every((e,i) => expectedanswer[i] === e))
 });
 
-test('Return 25 different arrays using 10 as N', () => {
-  let arrays:Array<Array<Number>> = [];
-  for (let i = 1; i <= 25; i ++) {
-    arrays.push(Randomnumbers(25))
-  }
-  let anyofthearraysisequall:boolean = false;
-  for (let i = 0; i <= 24; i++) {
-    anyofthearraysisequall = arrays[i].every((e,i) => arrays[24 - i][i] == e);
-    if (anyofthearraysisequall) {break }
-  }
-  expect(anyofthearraysisequall).toBeFalsy();
+test('Return Precise number of paper used to return to cash in case number 59984 RD$', () => {
+  let expectedanswer = [
+      29, 1, 1, 2, 0,
+       1, 1, 0, 1, 4
+  ]
+  expect(Desglosenumber(59984).every((e,i) => expectedanswer[i] === e))
 });
