@@ -1,12 +1,12 @@
-export default function Randomnnumbers(n: number): number[] {
+export default function Desglosenumber(n: number): number[] {
+    const monedas: number[] = [2000,1000,500,200,100,50,25,10,5,1];
     let result: number[] = [];
- 
-    while (result.length < n) {
-        let num: number = Math.round(Math.random() * n);
-        while (num == 0 || result.includes(num)) {
-            num = Math.round(Math.random() * n);
-        }
-        result.push(num);
+    let residuo: number = n;
+    for(let i = 0; i < monedas.length; i++) {
+        result.push(Math.floor(residuo / monedas[i]));
+        residuo = (residuo % monedas[i]);
     }
+    
+
     return result;
 }
